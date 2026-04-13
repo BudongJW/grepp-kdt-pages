@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>(주)그렙 KDT 과정 현황 대시보드</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <div class="header-left">
+        <span class="logo">programmers</span>
+        <div>
+          <h1>(주)그렙 <span class="accent">KDT</span> 과정 현황</h1>
+          <p class="subtitle">K-Digital Training 기수별 성과 대시보드</p>
+        </div>
+      </div>
+      <div class="header-right">
+        <span id="badge" class="badge loading">불러오는 중...</span>
+        <span id="updated" class="meta-text"></span>
+      </div>
+    </div>
+  </header>
+
+  <div id="loading" class="loading">
+    <div class="spinner"></div>
+    <p>고용24에서 KDT 데이터를 수집하는 중...</p>
+  </div>
+  <div id="error" class="error-box" style="display:none"></div>
+
+  <main id="main" class="main" style="display:none">
+    <!-- 요약 -->
+    <section class="kpi-row">
+      <div class="kpi"><div class="kpi-val" id="kpiCourses">-</div><div class="kpi-lbl">과정</div></div>
+      <div class="kpi"><div class="kpi-val" id="kpiCohorts">-</div><div class="kpi-lbl">총 기수</div></div>
+      <div class="kpi"><div class="kpi-val" id="kpiTrainees">-</div><div class="kpi-lbl">총 수강인원</div></div>
+      <div class="kpi"><div class="kpi-val" id="kpiSat">-</div><div class="kpi-lbl">평균 만족도</div></div>
+      <div class="kpi"><div class="kpi-val" id="kpiComp">-</div><div class="kpi-lbl">평균 수료율</div></div>
+    </section>
+
+    <!-- 과정별 드롭다운 -->
+    <section class="list-section">
+      <div class="list-head">
+        <h2 class="sec-title">과정별 기수 상세</h2>
+        <div class="list-actions">
+          <span id="listCnt" class="cnt"></span>
+          <button id="csvBtn" class="btn-sm">CSV 내보내기</button>
+        </div>
+      </div>
+      <div id="courseList" class="course-list"></div>
+      <p class="note">* 데이터 출처: <a href="https://www.work24.go.kr" target="_blank" rel="noopener">고용24</a> Open API + 웹 크롤링. 만족도는 전반적 만족도(100점 환산). 수료인원/취업률/평균임금은 고용24 수료통계 기준.<br>
+      <span class="status-badge prog">진행중</span> 현재 훈련 진행 중 &nbsp;
+      <span class="status-badge wait">집계대기</span> 종료 후 수료통계 미공개 (공개 대기) &nbsp;
+      <span class="status-badge nostats">통계없음</span> 종료 후 6개월 이상 경과했으나 고용24에 수료통계가 제공되지 않는 과정</p>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <a href="https://www.work24.go.kr" target="_blank" rel="noopener">고용24</a> 데이터 기반 |
+    (주)그렙 K-Digital Training 과정 현황
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
